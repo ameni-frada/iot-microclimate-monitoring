@@ -1,0 +1,76 @@
+[
+    {
+        "id": "f91994affaae6db4",
+        "type": "tab",
+        "label": "Microclimate",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "43b0866e1d3e38c4",
+        "type": "http in",
+        "z": "f91994affaae6db4",
+        "name": "",
+        "url": "/microclimate",
+        "method": "post",
+        "upload": true,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 280,
+        "wires": [
+            [
+                "51b75333eb192e7f"
+            ]
+        ]
+    },
+    {
+        "id": "aab0b4309bc5530e",
+        "type": "http response",
+        "z": "f91994affaae6db4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 550,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "51b75333eb192e7f",
+        "type": "function",
+        "z": "f91994affaae6db4",
+        "name": "function 1",
+        "func": "let data = msg.payload;\n// data = { temperature: 25.3, humidity: 60.2, light: 800, soil: 45.1 }\nmsg.payload = `Temp: ${data.temperature}, Humidity: ${data.humidity}`;\nreturn msg;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 280,
+        "wires": [
+            [
+                "aab0b4309bc5530e",
+                "8850faa13e743045"
+            ]
+        ]
+    },
+    {
+        "id": "8850faa13e743045",
+        "type": "debug",
+        "z": "f91994affaae6db4",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 180,
+        "wires": []
+    }
+]
